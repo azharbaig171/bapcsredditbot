@@ -1,6 +1,6 @@
 # BAPCSBot
 
-A Reddit bot using Python and Praw Reddit API to look for deals on /r/buildapcsales and ping a Reddit account on a hit.
+A Reddit bot using Python and Praw Reddit API wrapper to look for deals on /r/buildapcsales and ping a Reddit account on a hit.
 
 ## Goals
 
@@ -17,9 +17,10 @@ The bot is designed to continuously run on a server. In my case, I am using Cron
 
 ## Status
 
-## Installation
-You will need Python installed and will need to install PRAW
+## Running BAPCSRobot
+You will need Python 3.7 and will need to install PIP and PRAW
 ```python
+python get-pip.py
 pip install praw 
 ```
 To access the Reddit API, you will need to register for access [here](https://www.reddit.com/prefs/apps/).
@@ -55,9 +56,14 @@ password=bot_password
 username=bot_username
 user_agent=user_agent_name
 ```
+You will also have to edit this line to add a Reddit username for the bot to PM:
+```python
+ reddit.redditor('RedditUsernameGoesHere').message('(U) [^_^] (U)  Fresh BAPCS Deal! (U) [^_^] (U) ', submission.link)
+```
+
 From here, you can run the bot script as-is and it will be functional, but it will not run continuously. To set up automation, you will need a Linux distribution and a few commands ([This site](https://www.pythonanywhere.com) looks way easier to setup, but i found this a little too late...)
 
-To start, you will need to install pip, praw, Git, and clone the repository.
+To start, you will need to install pip, praw, Git, and clone the repository to the directory of your choosing:
 
 ```pyth
 sudo apt-get update -y
@@ -66,11 +72,24 @@ sudo pip install praw
 sudo apt-get install git -y
 git clone https://github.com/azharbaig171/bapcsredditbot.git
 ```
+Now, you will have to setup Cron
+```python
+crontab -e
+```
+Choose your preferred text editor, and a file will open to add a time and command. To have the program run at a certain path every 10 minutes:
+```python
+10 * * * * cd /Documents/bapcsrobot; ./bapcsrobot.py
+```
+The bot will now be running in the background. Now you're done!
 
-
-## Usage
 
 ## Links
+[Build a Reddit Bot](https://www.pythonforengineers.com/build-a-reddit-bot-part-1/)
+
+[PRAW Documentation](https://praw.readthedocs.io/en/latest/getting_started/quick_start.html)
+
+
+
 
 ## Acknowledgements
 Thanks to [this blog post](https://www.pythonforengineers.com/build-a-reddit-bot-part-1/) for a great tutorial on building a Reddit bot and automating the process! 
