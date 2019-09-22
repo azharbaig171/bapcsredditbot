@@ -1,4 +1,4 @@
-# BAPCSBot
+# BAPCSRobot
 
 A Reddit bot using Python and Praw Reddit API to look for deals on /r/buildapcsales and ping a Reddit account on a hit.
 
