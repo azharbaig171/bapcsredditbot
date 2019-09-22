@@ -6,16 +6,16 @@ A Reddit bot using Python and Praw Reddit API wrapper to look for deals on /r/bu
 
 One of my favorite pastimes is to window shop PC parts online, and /r/buildapcsales is my main destination. Occasionally, there are really good deals posted that I end up missing from quickly going out of stock for being good deals! I also wanted to pick up both Python and working with a new API.
  
-My goal with this bot is to ping a message to my Reddit account when certain deals are found in the new section of the subreddit. The program will scrape the  newest posts on the /r/buildapcsales subreddit every 15 minutes and check to see if the deal is 'good'. The conditions for checking if a deals is 'good' are:
+My goal with this bot is to ping a message to my Reddit account when certain deals are found in the new section of the subreddit. The bot is designed to continuously run on a server. In my case, I am using Cron on Ubuntu 18.04 on a Firefly ROC-RK3328-CC development board.
+
+## Status
+The program will scrape the  newest posts on the /r/buildapcsales subreddit every 15 minutes and check to see if the deal is 'good'. The conditions for checking if a deals is 'good' are:
 1. The ratio between upvotes and time
 2. The ratio between number of comments and time
 3. The ratio between comments and upvotes
 
 If a deal is found to be 'good', not visited before, and not expired, a message will be sent to my Reddit account from the bot's account with the name and link to the posting.
 
-The bot is designed to continuously run on a server. In my case, I am using Cron on Ubuntu 18.04 on a Firefly ROC-RK3328-CC development board.
-
-## Status
 
 ## Running BAPCSRobot
 You will need Python 3.7 and will need to install PIP and PRAW
