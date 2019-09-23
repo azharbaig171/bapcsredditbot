@@ -19,11 +19,6 @@ else:
         posts_visited = list(filter(None, posts_visited))
 #Stores posts if they have not been seen already
 for submission in subreddit.new(limit=7):
-    print(submission.score)
-    print(submission.num_comments)
-    print(time.time() - submission.created_utc)
-    print(submission.title)
-    
     #Check to see if a post is marked as expried
     if submission.over_18 or submission.is_self:
         continue
