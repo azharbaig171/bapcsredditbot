@@ -1,3 +1,4 @@
+
 # BAPCSBot
 
 A Reddit bot using Python and Praw Reddit API wrapper to look for deals on /r/buildapcsales and ping a Reddit account on a hit.
@@ -45,7 +46,7 @@ You will also have to edit this line in bapcsrobot.py to add a Reddit username f
 
 From here, you can run the bot script as-is and it will be functional, but it will not run continuously. To set up automation, you will need a Linux distribution and a few commands ([This site](https://www.pythonanywhere.com) looks like a great simpler alternative, but i found this a little too late...)
 
-To start, you will need to install pip, praw, Git, and clone the repository to the directory of your choosing:
+To start, you will need to install Python (at least 3.4), pip, PRAW, Git, and clone the repository to the directory of your choosing:
 
 ```pyth
 sudo apt-get update -y
@@ -58,9 +59,9 @@ Now, you will have to setup Cron
 ```python
 crontab -e
 ```
-Choose your preferred text editor, and a file will open to add a time and command. To have the program run at a certain path every 10 minutes:
+Choose your preferred text editor, and a file will open to add a time and command. To have the program run at a certain path every 2 minutes:
 ```python
-10 * * * * cd /Documents/bapcsrobot; ./bapcsrobot.py
+*/2 * * * * cd /Documents/bapcsrobot/bapcsredditbot; ./bapcsrobot.py
 ```
 The bot will now be running in the background. Now you're done!
 
