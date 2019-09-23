@@ -8,13 +8,20 @@ One of my favorite pastimes is to window shop PC parts online, and /r/buildapcsa
  
 My goal with this bot is to ping a message to my Reddit account when certain deals are found in the new section of the subreddit. The bot is designed to continuously run on a server. In my case, I am using Cron on Ubuntu 18.04 on a Firefly ROC-RK3328-CC development board.
 
+In the future, I would like to add a simple UI to pass in parameters to also return deals on specific types of deals and update the 'deal' method.
+
 ## Status
-The program will scrape the  newest posts on the /r/buildapcsales subreddit every 15 minutes and check to see if the deal is 'good'. The conditions for checking if a deals is 'good' are:
+- [x] Correctly configure praw.ini file
+- [x] Pull newest posts and check if the have been checked
+- [x] Write basic method to determine if a post is a 'deal'
+- [x] Setup server for bot
+- [ ] Update 'deal' method
+- [ ]
+
+-Improve method of determining if a post is a good 'deal'
 1. The ratio between upvotes and time
 2. The ratio between number of comments and time
 3. The ratio between comments and upvotes
-
-If a deal is found to be 'good', not visited before, and not expired, a message will be sent to my Reddit account from the bot's account with the name and link to the posting.
 
 
 ## Running BAPCSRobot
