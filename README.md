@@ -20,12 +20,6 @@ In the future, I would like to add a simple UI to pass in parameters to also ret
 - [ ] Add support for tracking more subreddits (???)
 - [ ] Add method to deal with Reddit downtime or connection failures
 
--Improve method of determining if a post is a good 'deal'
-1. The ratio between upvotes and time
-2. The ratio between number of comments and time
-3. The ratio between comments and upvotes
-
-
 ## Running BAPCSRobot
 You will need Python 3.7 and will need to install PIP and PRAW
 ```python
