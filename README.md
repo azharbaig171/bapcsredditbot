@@ -16,7 +16,9 @@ In the future, I would like to add a simple UI to pass in parameters to also ret
 - [x] Write basic method to determine if a post is a 'deal'
 - [x] Setup server for bot
 - [ ] Update 'deal' method
-- [ ]
+- [ ] Add UI to pass parameters for specific deals
+- [ ] Add support for tracking more subreddits (???)
+
 
 -Improve method of determining if a post is a good 'deal'
 1. The ratio between upvotes and time
