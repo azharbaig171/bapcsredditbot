@@ -18,7 +18,7 @@ In the future, I would like to add a simple UI to pass in parameters to also ret
 - [ ] Update 'deal' method
 - [ ] Add UI to pass parameters for specific deals
 - [ ] Add support for tracking more subreddits (???)
-
+- [ ] Add method to deal with Reddit downtime or connection failures
 
 -Improve method of determining if a post is a good 'deal'
 1. The ratio between upvotes and time
@@ -34,30 +34,9 @@ pip install praw
 ```
 To access the Reddit API, you will need to register for access [here](https://www.reddit.com/prefs/apps/).
 
-In order to run the program, you will need your own praw.ini file for your own client ID, client secret, username, password, and user_agent(Technically, all the bot does is send a message to a Reddit account, so you could remove the bot message code from bapcsrobot.py and avoid providing a Reddit username and password, but you will still need a client ID,secret, and user_agent). This file will be placed in the current working directory. Here is what a default praw.ini file would look like:
+In order to run the program, you will need to edit the praw.ini file for your own client ID, client secret, username, password, and user_agent. This file will be placed in the current working directory. Here is the section of praw.ini that will need to be modified:
 
 ```python
-[DEFAULT]
-# A boolean to indicate whether or not to check for package updates.
-check_for_updates=True
-
-# Object to kind mappings
-comment_kind=t1
-message_kind=t4
-redditor_kind=t2
-submission_kind=t3
-subreddit_kind=t5
-trophy_kind=t6
-
-# The URL prefix for OAuth-related requests.
-oauth_url=https://oauth.reddit.com
-
-# The URL prefix for regular requests.
-reddit_url=https://www.reddit.com
-
-# The URL prefix for short URLs.
-short_url=https://redd.it
-#This is what will be different based on your own Reddit app and bot information
 [bot1]
 client_id=reddit_client_id
 client_secret=reddit_client_secret
@@ -65,12 +44,12 @@ password=bot_password
 username=bot_username
 user_agent=user_agent_name
 ```
-You will also have to edit this line to add a Reddit username for the bot to PM:
+You will also have to edit this line in bapcsrobot.py to add a Reddit username for the bot to PM(This is the only line that needs a Reddit username and password, so you could remove this line from the code and avoid providing a Reddit username and password, but you will still need a client ID, client secret, and user_agent):
 ```python
  reddit.redditor('RedditUsernameGoesHere').message('(U) [^_^] (U)  Fresh BAPCS Deal! (U) [^_^] (U) ', submission.link)
 ```
 
-From here, you can run the bot script as-is and it will be functional, but it will not run continuously. To set up automation, you will need a Linux distribution and a few commands ([This site](https://www.pythonanywhere.com) looks way easier to setup, but i found this a little too late...)
+From here, you can run the bot script as-is and it will be functional, but it will not run continuously. To set up automation, you will need a Linux distribution and a few commands ([This site](https://www.pythonanywhere.com) looks like a great simpler alternative, but i found this a little too late...)
 
 To start, you will need to install pip, praw, Git, and clone the repository to the directory of your choosing:
 
