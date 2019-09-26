@@ -5,7 +5,7 @@ A Reddit bot using Python and the PRAW Reddit API wrapper to monitor the 'new' s
 
 ## Goals
 
-One of my favorite pastimes is to window shop PC parts online, and /r/buildapcsales is my main destination. Occasionally, there are really good deals posted that I end up missing from quickly going out of stock for being too good, and I wanted to catch them more often. I also wanted to pick up both Python and working with a new API.
+One of my favorite pastimes is to window shop PC parts online, and /r/buildapcsales is my main destination. Occasionally, there are really good deals posted that I end up missing from quickly going out of stock for being too good, and I wanted to catch them more often. I also wanted to pick up both Python and working with a social media API.
  
 My goal with this bot is to ping a message to my Reddit account when certain deals are found in the new section of the subreddit. The bot is designed to continuously run on a server. In my case, I am using Cron on Ubuntu 18.04 on a Firefly ROC-RK3328-CC development board.
 
@@ -16,6 +16,7 @@ In the future, I would like to add a simple UI to pass in parameters to also ret
 - [x] Pull newest posts and check if the have been checked
 - [x] Write basic method to determine if a post is a 'deal'
 - [x] Setup server for bot
+- [ ] Fix some cases where the bot send multiple messages of same link
 - [ ] Update 'deal' method
 - [ ] Add UI to pass parameters for specific deals
 - [ ] Add method to deal with Reddit downtime or connection failures
@@ -48,7 +49,7 @@ From here, you can run the bot script as-is and it will be functional, but it wi
 
 To start, you will need to install Python (at least 3.4), pip, PRAW, Git, and clone the repository to the directory of your choosing:
 
-```pyth
+```python
 sudo apt-get update -y
 sudo apt-get install python3
 sudo apt-get install python3-pip -y
@@ -61,7 +62,7 @@ Make the required edits to the praw.ini and bapcsrobot.py files. Next, you will 
 crontab -e
 ```
 Choose your preferred text editor, and a file will open to add a time and command. To have the program run at a certain path every minute (this is what worked for me, your commands may vary):
-```python
+```
 * * * * * cd /Documents/bapcsrobot/bapcsredditbot && /usr/bin/python3.6 bapcsrobot.py
 ```
 The bot will now be running in the background. You're now done!
@@ -71,6 +72,8 @@ The bot will now be running in the background. You're now done!
 [Build a Reddit Bot](https://www.pythonforengineers.com/build-a-reddit-bot-part-1/)
 
 [PRAW Documentation](https://praw.readthedocs.io/en/latest/getting_started/quick_start.html)
+
+[CRONHowTo](https://help.ubuntu.com/community/CronHowto)
 
 
 
